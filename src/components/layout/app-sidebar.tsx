@@ -28,7 +28,7 @@ export function AppSidebar() {
 
   return (
     <SidebarProvider>
-      <Sidebar className="border-r bg-primary text-primary-foreground" collapsible="icon">
+      <Sidebar className="h-screen border-r bg-primary text-primary-foreground" collapsible="icon">
         <SidebarHeader className="flex items-center justify-between p-4">
           <div className="group-data-[collapsed=true]:hidden">
             <Logo />
