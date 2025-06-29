@@ -39,18 +39,19 @@ export function AppSidebar() {
           <SidebarMenu>
             {menuItems.map((item) => (
               <SidebarMenuItem key={item.href}>
-                <Link href={item.href} passHref legacyBehavior>
-                  <SidebarMenuButton
-                    isActive={pathname === item.href}
-                    tooltip={{ children: item.label }}
-                    className="group-data-[collapsed=true]:justify-center data-[active=true]:bg-primary-foreground/10 data-[active=true]:text-primary-foreground hover:bg-primary-foreground/10"
-                  >
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname === item.href}
+                  tooltip={{ children: item.label }}
+                  className="group-data-[collapsed=true]:justify-center data-[active=true]:bg-primary-foreground/10 data-[active=true]:text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  <Link href={item.href}>
                     <item.icon className="h-5 w-5" />
                     <span className="group-data-[collapsed=true]:hidden">
                       {item.label}
                     </span>
-                  </SidebarMenuButton>
-                </Link>
+                  </Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
             ))}
           </SidebarMenu>
