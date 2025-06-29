@@ -1,3 +1,4 @@
+
 import { getLevelInfo } from "@/lib/data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -19,7 +20,7 @@ export function UserProfileCard() {
           </CardDescription>
         </div>
         <Avatar className="h-16 w-16">
-          <AvatarImage src="https://placehold.co/128x128.png" alt="Yusuf Ibrahim" data-ai-hint="student avatar" />
+          <AvatarImage src="https://placehold.co/128x128/F4B400/FFFFFF.png" alt="Yusuf Ibrahim" data-ai-hint="student avatar" />
           <AvatarFallback>YI</AvatarFallback>
         </Avatar>
       </CardHeader>

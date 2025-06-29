@@ -1,3 +1,4 @@
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,13 +6,13 @@ import { BookOpen, Palette, ShoppingBag, User } from "lucide-react";
 import Image from 'next/image';
 
 const inGameRewards = [
-    { title: "New Avatars", description: "Unlock cool new avatars to customize your profile.", icon: User, image: "https://placehold.co/600x400.png", hint: "character avatar" },
-    { title: "Profile Colors", description: "Get vibrant color themes for your profile page.", icon: Palette, image: "https://placehold.co/600x400.png", hint: "color palette" },
-    { title: "Assist Tools", description: "Purchase tools like '50/50' or 'Retry' to help in challenges.", icon: ShoppingBag, image: "https://placehold.co/600x400.png", hint: "game powerup" },
+    { title: "New Avatars", description: "Unlock cool new avatars to customize your profile.", icon: User, image: "https://placehold.co/600x400/29ABE2/FFFFFF.png", hint: "character avatar" },
+    { title: "Profile Colors", description: "Get vibrant color themes for your profile page.", icon: Palette, image: "https://placehold.co/600x400/F4B400/FFFFFF.png", hint: "color palette" },
+    { title: "Assist Tools", description: "Purchase tools like '50/50' or 'Retry' to help in challenges.", icon: ShoppingBag, image: "https://placehold.co/600x400/F46A4E/FFFFFF.png", hint: "game powerup" },
 ];
 
 const realWorldRewards = [
-    { title: "Free Courses", description: "Top performers get free access to premium courses on our platform.", icon: BookOpen, image: "https://placehold.co/600x400.png", hint: "online course" },
+    { title: "Free Courses", description: "Top performers get free access to premium courses on our platform.", icon: BookOpen, image: "https://placehold.co/600x400/2A9D8F/FFFFFF.png", hint: "online course" },
 ];
 
 export default function RewardsPage() {

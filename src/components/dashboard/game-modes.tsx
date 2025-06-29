@@ -1,3 +1,4 @@
+
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { User, Users, Swords } from "lucide-react";
@@ -10,7 +11,7 @@ const modes = [
     title: "Single Player",
     description: "Play alone and test your knowledge.",
     href: "/play",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/600x400/29ABE2/FFFFFF.png",
     hint: "single player",
   },
   {
@@ -19,7 +20,7 @@ const modes = [
     description: "Challenge a friend in a real-time battle.",
     href: "/play",
     disabled: true,
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/600x400/F4B400/FFFFFF.png",
     hint: "competition duel",
   },
   {
@@ -28,7 +29,7 @@ const modes = [
     description: "Collaborate with your team to win.",
     href: "/play",
     disabled: true,
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/600x400/F46A4E/FFFFFF.png",
     hint: "team collaboration",
   },
 ];
