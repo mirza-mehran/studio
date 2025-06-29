@@ -1,8 +1,10 @@
+
 'use client';
 
 import { getMotivationalMessage } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { motivationalMessages } from "@/lib/messages";
 import { Lightbulb, RefreshCw } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
 
@@ -12,7 +14,9 @@ export function MotivationalTipCard() {
 
   const fetchMessage = () => {
     startTransition(async () => {
-      const msg = await getMotivationalMessage();
+      const randomIndex = Math.floor(Math.random() * motivationalMessages.length);
+      const randomPlayerId = `user_${Math.floor(Math.random() * 10000)}`;
+      const msg = await getMotivationalMessage(randomIndex, randomPlayerId);
       setMessage(msg);
     });
   };
