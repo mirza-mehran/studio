@@ -6,6 +6,10 @@ import { collection, getDocs, query, orderBy, limit, doc, getDoc } from 'firebas
 import { getLevelInfo } from '@/lib/data';
 
 export async function getUserProfile(userId: string): Promise<User | null> {
+    if (!db) {
+        console.error("Firestore is not initialized. Check your Firebase environment variables.");
+        return null;
+    }
     try {
         const userDoc = await getDoc(doc(db, 'users', userId));
         if (!userDoc.exists()) {
@@ -30,6 +34,10 @@ export async function getUserProfile(userId: string): Promise<User | null> {
 }
 
 export async function getLeaderboard(count?: number): Promise<LeaderboardPlayer[]> {
+    if (!db) {
+        console.error("Firestore is not initialized. Check your Firebase environment variables.");
+        return [];
+    }
     try {
         const usersRef = collection(db, 'users');
         const q = count 
@@ -59,6 +67,10 @@ export async function getLeaderboard(count?: number): Promise<LeaderboardPlayer[
 
 
 export async function getQuestions(): Promise<Question[]> {
+    if (!db) {
+        console.error("Firestore is not initialized. Check your Firebase environment variables.");
+        return [];
+    }
     try {
         const questionsRef = collection(db, 'questions');
         const q = query(questionsRef, orderBy('createdAt', 'asc'));
@@ -75,6 +87,10 @@ export async function getQuestions(): Promise<Question[]> {
 }
 
 export async function getRewards(): Promise<{inGame: Reward[], realWorld: Reward[]}> {
+    if (!db) {
+        console.error("Firestore is not initialized. Check your Firebase environment variables.");
+        return { inGame: [], realWorld: [] };
+    }
     try {
         const rewardsRef = collection(db, 'rewards');
         const querySnapshot = await getDocs(rewardsRef);
