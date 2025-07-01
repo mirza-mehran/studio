@@ -46,14 +46,3 @@ export const getLevelInfo = (points: number) => {
     pointsToNext: Math.max(0, nextLevel.minPoints - points),
   };
 };
-
-export const leaderboardData = [
-  { rank: 1, name: 'Ahmad Al-Farsi', level: 'Fearless Falcon', score: 4520, avatar: 'https://placehold.co/40x40/29ABE2/FFFFFF.png' },
-  { rank: 2, name: 'Fatima Al-Zahra', level: 'Mighty Lion', score: 3280, avatar: 'https://placehold.co/40x40/F46A4E/FFFFFF.png' },
-  { rank: 3, name: 'Yusuf Ibrahim', level: 'Champion Warrior', score: 2310, avatar: 'https://placehold.co/40x40/F4B400/FFFFFF.png' },
-  { rank: 4, name: 'Layla Khan', level: 'Leaping Lion', score: 1980, avatar: 'https://placehold.co/40x40/2A9D8F/FFFFFF.png' },
-  { rank: 5, name: 'Omar Abdullah', level: 'Steadfast Guard', score: 1450, avatar: 'https://placehold.co/40x40/F9A857/FFFFFF.png' },
-  { rank: 6, name: 'Noor Hassan', level: 'Piercing Spear', score: 1020, avatar: 'https://placehold.co/40x40/E9C46A/FFFFFF.png' },
-  { rank: 7, name: 'Zainab Ali', level: 'Rising Knight', score: 750, avatar: 'https://placehold.co/40x40/E76F51/FFFFFF.png' },
-  { rank: 8, name: 'Tariq Ahmed', level: 'Adventurous Hero', score: 550, avatar: 'https://placehold.co/40x40/264653/FFFFFF.png' },
-];

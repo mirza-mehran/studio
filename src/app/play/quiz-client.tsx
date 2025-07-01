@@ -6,50 +6,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Clock, Star, Target, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { Progress } from '@/components/ui/progress';
+import type { Question } from '@/types';
 
-const questions = [
-  {
-    question: "What is the capital city of Japan?",
-    options: ["Beijing", "Seoul", "Tokyo", "Bangkok"],
-    correctAnswer: 2,
-    level: "Brave Student",
-    points: 10,
-  },
-  {
-    question: "Which planet is known as the Red Planet?",
-    options: ["Earth", "Mars", "Jupiter", "Saturn"],
-    correctAnswer: 1,
-    level: "Brave Student",
-    points: 10,
-  },
-  {
-    question: "Who wrote 'Romeo and Juliet'?",
-    options: ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-    correctAnswer: 1,
-    level: "Adventurous Hero",
-    points: 15,
-  },
-  {
-    question: "What is the largest ocean on Earth?",
-    options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-    correctAnswer: 3,
-    level: "Adventurous Hero",
-    points: 15,
-  },
-  {
-    question: "What is the chemical symbol for gold?",
-    options: ["Au", "Ag", "Pb", "Fe"],
-    correctAnswer: 0,
-    level: "Rising Knight",
-    points: 20,
-  },
-];
-
-export function QuizClient() {
+export function QuizClient({ questions }: { questions: Question[] }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState(0);
+  const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   
   const isQuizFinished = currentQuestionIndex >= questions.length;
   const currentQuestion = questions[currentQuestionIndex];
@@ -64,6 +28,7 @@ export function QuizClient() {
     setIsAnswered(true);
     if (selectedAnswer === currentQuestion.correctAnswer) {
       setScore(prev => prev + currentQuestion.points);
+      setCorrectAnswersCount(prev => prev + 1);
     }
   };
 
@@ -80,10 +45,10 @@ export function QuizClient() {
     setSelectedAnswer(null);
     setIsAnswered(false);
     setScore(0);
+    setCorrectAnswersCount(0);
   }
 
   if (isQuizFinished) {
-    const correctAnswers = questions.filter(q => score >= q.points).length; // simple approximation
     return (
       <Card className="w-full max-w-2xl text-center">
         <CardHeader>
@@ -95,7 +60,7 @@ export function QuizClient() {
             <p className="text-5xl font-bold text-primary">{score}</p>
             <p className="text-muted-foreground">Total Points</p>
           </div>
-          <p className="text-lg">You got <span className='font-bold text-primary'>{Math.floor(score/10)}/{questions.length}</span> correct.</p>
+          <p className="text-lg">You got <span className='font-bold text-primary'>{correctAnswersCount}/{questions.length}</span> correct.</p>
         </CardContent>
         <CardFooter className="justify-center">
           <Button onClick={handleRestart}>Play Again</Button>

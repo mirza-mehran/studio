@@ -1,12 +1,15 @@
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { leaderboardData } from "@/lib/data";
+import { getLeaderboard } from "@/services/firestore";
 import { Trophy } from "lucide-react";
 
-export default function LeaderboardPage() {
+export default async function LeaderboardPage() {
+  const leaderboardData = await getLeaderboard();
+
   return (
     <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
       <h1 className="font-headline text-3xl font-bold tracking-tight text-foreground">

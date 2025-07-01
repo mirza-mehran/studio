@@ -1,12 +1,13 @@
-import { leaderboardData } from "@/lib/data";
+
+import { getLeaderboard } from "@/services/firestore";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Crown } from "lucide-react";
 import Link from "next/link";
 
-export function LeaderboardPreview() {
-  const topPlayers = leaderboardData.slice(0, 3);
+export async function LeaderboardPreview() {
+  const topPlayers = await getLeaderboard(3);
   return (
     <Card>
       <CardHeader>
